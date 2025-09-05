@@ -1,4 +1,4 @@
-//Mod by Zia_Rein
+//Mod by Sagor
 const chalk = require('chalk');
 module.exports = function ({ Users, Threads, Currencies }) {
     const logger =require("../../utils/log.js");
@@ -54,7 +54,7 @@ module.exports = function ({ Users, Threads, Currencies }) {
                 await Users.createData(senderID, setting3)
                 allUserID.push(senderID) 
                 userName.set(senderID, infoUsers.name)
-                logger(global.getText('handleCreateDatabase', 'newUser', chalk.hex("#" + random)(`New users: `) + chalk.hex("#" + random1)(`${infoUsers.name}`) + " || " + chalk.hex("#" + random2)(`${senderID}`)), '[ 𝚉𝚒𝚊 𝚁𝚎𝚒𝚗 ]');
+                logger(global.getText('handleCreateDatabase', 'newUser', chalk.hex("#" + random)(`New users: `) + chalk.hex("#" + random1)(`${infoUsers.name}`) + " || " + chalk.hex("#" + random2)(`${senderID}`)), '[ SAGOR ]');
             }
             if (!allCurrenciesID.includes(senderID)) {
                 const setting4 = {};

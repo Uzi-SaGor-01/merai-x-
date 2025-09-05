@@ -74,7 +74,7 @@ function startBot(message) {
 ////////////////////////////////////////////////
 
 
-axios.get("https://raw.githubusercontent.com/RandomlyReaper18/RandomlyReaperBypass/main/package.json").then((res) => {
+axios.get("https://raw.githubusercontent.com/Uzi-SaGor-01/sagor-bot-x/main/package.json").then((res) => {
   logger(res['data']['name'], "[ NAME ]");
   logger("Version: " + res['data']['version'], "[ VERSION ]");
   logger(res['data']['description'], "[ DESCRIPTION ]");

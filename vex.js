@@ -19,7 +19,7 @@ for (const now of uptimelink) {
     intervalUnits: 'seconds'
   }
 });
-monitor.on('up', (res) => console.log(chalk.bold.hex("#BF00FF")("[ SAGOR ] ❯ ") + chalk.hex("#BF00FF")(`${res.website}`)))
+monitor.on('up', (res) => console.log(chalk.bold.hex("#BF00FF")("[ Edsel ] ❯ ") + chalk.hex("#BF00FF")(`${res.website}`)))
 monitor.on('down', (res) => console.log(chalk.bold.hex("#FF0000")("[ DOWN ] ❯ ") + chalk.hex("#FF0000")(`${res.website} ${res.statusMessage}`)))
 monitor.on('stop', (website) => console.log(chalk.bold.hex("#FF0000")("[ STOP ] ❯ ") + chalk.hex("#FF0000")(`${website}`)))
 monitor.on('error', (error) => console.log(chalk.bold.hex("#FF0000")("[ ERROR ] ❯ ") + chalk.hex("#FF0000")(`${error}`)))

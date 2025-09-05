@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>🍂💫 𝐒𝐀𝐆𝐎𝐑 💫🍂</title>
+<style>
+  * { margin:0; padding:0; box-sizing: border-box; }
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    background: linear-gradient(270deg, #ff0000, #00ff00, #0000ff, #ffff00, #ff00ff, #00ffff);
+    background-size: 1200% 1200%;
+    animation: bgAnimation 15s ease infinite;
+    font-family: 'Segoe UI', sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+  }
+  @keyframes bgAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .profile-pic {
+    width: 160px; height: 160px; border-radius: 50%;
+    position: relative; margin-bottom: 15px;
+  }
+  .profile-pic::before {
+    content: ''; position: absolute; top: -10px; left: -10px;
+    width: 180px; height: 180px; border-radius: 50%;
+    background: linear-gradient(45deg, red, yellow, lime, cyan, blue, magenta, red);
+    background-size: 400%;
+    animation: neonBorder 3s linear infinite;
+    z-index: 0;
+  }
+  .profile-pic img {
+    width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+    position: relative; z-index: 1;
+  }
+  @keyframes neonBorder {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+  }
+  h1 {
+    font-size: 2rem; margin-bottom: 5px; color: #00ffff;
+  }
+  .info {
+    font-size: 1rem; text-align: center; margin-bottom: 20px;
+    animation: rgbTextGlow 2s linear infinite;
+  }
+  .sagor-glow {
+    font-size: 2rem; font-weight: bold; color: #fff;
+    position: relative; margin-bottom: 20px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .sagor-glow::before {
+    content: ''; position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px;
+    border-radius: 50%; border: 3px solid transparent;
+    background: linear-gradient(45deg, red, lime, blue, yellow, cyan, magenta);
+    background-size: 300%;
+    filter: blur(10px);
+    animation: neonRing 3s linear infinite;
+    z-index: -1;
+  }
+  @keyframes neonRing {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .tabs {
+    display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center;
+  }
+  .tab {
+    cursor: pointer; font-size: 1.2rem; padding: 5px 10px;
+    border-bottom: 2px solid transparent; user-select:none;
+    transition: color 0.3s, border-bottom 0.3s;
+  }
+  .tab.active {
+    color: #00ffff; border-bottom: 2px solid #00ffff;
+  }
+  .content {
+    width: 100%; max-width: 600px; background: rgba(0,0,0,0.5);
+    padding: 20px; border-radius: 10px; text-align: center;
+    font-family: monospace; font-size: 1.5rem; min-height: 120px;
+    display: flex; align-items: center; justify-content: center;
+    color: #00ffff;
+    box-shadow: 0 0 20px rgba(0,255,255,0.3);
+    flex-direction: column;
+  }
+  .skill-item {
+    width: 100%; max-width: 500px;
+    display: flex; justify-content: space-between; align-items: center;
+    margin: 8px 0;
+    font-weight: 700;
+  }
+  .skill-name {
+    font-size: 1.2rem;
+    flex: 1;
+    text-align: left;
+  }
+  .skill-percent {
+    width: 60px;
+    text-align: right;
+    font-family: monospace;
+  }
+  .skill-bar {
+    flex: 3;
+    height: 14px;
+    background: rgba(0, 255, 255, 0.2);
+    border-radius: 12px;
+    margin: 0 15px;
+    overflow: hidden;
+    position: relative;
+  }
+  .skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00ffff, #0088ff);
+    border-radius: 12px;
+    width: 0;
+    animation: fillBar 1.2s forwards;
+  }
+  @keyframes fillBar {
+    to {
+      width: var(--width);
+    }
+  }
+  .rgb-text {
+    font-size: 2.8rem;
+    font-weight: 900;
+    background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+    background-size: 600% 600%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rgbTextGlow 4s ease infinite;
+    user-select: none;
+  }
+  @keyframes rgbTextGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .music-wave {
+    display: flex; gap: 5px; margin-bottom: 20px;
+  }
+  .bar {
+    width: 5px; height: 20px; background: #00ffff;
+    animation: wave 1s infinite;
+  }
+  .bar:nth-child(2) { animation-delay: 0.1s; }
+  .bar:nth-child(3) { animation-delay: 0.2s; }
+  .bar:nth-child(4) { animation-delay: 0.3s; }
+  .bar:nth-child(5) { animation-delay: 0.4s; }
+  @keyframes wave {
+    0%, 100% { transform: scaleY(0.5); }
+    50% { transform: scaleY(1.5); }
+  }
+  /* ছোট ASSALAMUALAIKUM টেক্সট স্টাইল */
+  .small-assalam {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #00ffff;
+    user-select: none;
+  }
+  a.social-link {
+    color: #00ffff;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  a.social-link:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+<audio id="backgroundMusic" autoplay loop>
+  <source src="https://raw.githubusercontent.com/Uzi-SaGor-01/Song/main/SAGOR.mp3" type="audio/mpeg" />
+</audio>
+
+<div class="profile-pic">
+  <img src="https://i.imgur.com/3Dm0hmq.jpeg" alt="SAGOR" />
+</div>
+
+<h1>𝐉𝐀𝐇𝐈𝐃𝐔𝐋 𝐈𝐒𝐋𝐀𝐌</h1>
+
+<div class="info">
+  𝐖𝐞𝐛 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫 | 𝐃𝐞𝐬𝐢𝐠𝐧𝐞𝐫 | 𝐁𝐨𝐭 𝐂𝐫𝐞𝐚𝐭𝐨𝐫 <br />
+  📧 𝐛𝐚𝐛𝐲𝐠𝐢𝐭𝐡𝐮𝐛@𝐠𝐦𝐚𝐢𝐥.𝐜𝐨𝐦 | 📱 +𝟖𝟖𝟎𝟏𝟔𝟏𝟏𝟎𝟕𝟗𝟗𝟏𝟓 | 🏠 𝐁𝐚𝐧𝐠𝐥𝐚𝐝𝐞𝐬𝐡
+</div>
+
+<div class="sagor-glow" id="sagorText">SAGOR</div>
+
+<div class="music-wave">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+
+<div class="tabs">
+  <div class="tab" data-tab="facebook">Facebook</div>
+  <div class="tab" data-tab="whatsapp">WhatsApp</div>
+  <div class="tab" data-tab="telegram">Telegram</div>
+  <div class="tab" data-tab="tiktok">TikTok</div>
+  <div class="tab" data-tab="github">GitHub</div>
+  <div class="tab" data-tab="skills">Skills</div>
+</div>
+
+<div id="content-container" class="content">
+  <span class="rgb-text" id="defaultText">SAGOR</span>
+</div>
+
+<script>
+  const music = document.getElementById('backgroundMusic');
+  window.addEventListener('load', () => {
+    const playPromise = music.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        document.body.addEventListener('click', () => music.play(), { once: true });
+      });
+    }
+  });
+
+  const tabs = document.querySelectorAll('.tab');
+  const contentContainer = document.getElementById('content-container');
+  const sagorText = document.getElementById('sagorText');
+  let currentTab = null;
+  let tabVisible = false;
+
+  const socialLinks = {
+    facebook: `<a href="https://www.facebook.com/SAGOR.DJK.FORYOU" target="_blank" class="social-link">Facebook Profile</a>`,
+    whatsapp: `<a href="https://wa.me/+8801611079915" target="_blank" class="social-link">WhatsApp Profile</a>`,
+    telegram: `<a href="https://t.me/@xxSaGorxx" target="_blank" class="social-link">Telegram Personal</a>`,
+    tiktok: `<a href="https://www.tiktok.com/@11sagor_islam" target="_blank" class="social-link">TikTok Profile</a>`,
+    github: `<a href="https://github.com/SaGorbot009" target="_blank" class="social-link">GitHub Profile</a>`
+  };
+
+  const skillsData = [
+    { name: "HTML", percent: "95%" },
+    { name: "CSS", percent: "85%" },
+    { name: "JavaScript", percent: "80%" },
+    { name: "React", percent: "75%" },
+    { name: "Node.js", percent: "70%" },
+    { name: "Python", percent: "80%" },
+    { name: "Django", percent: "70%" },
+    { name: "Photoshop", percent: "65%" },
+  ];
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const tabName = tab.getAttribute('data-tab');
+
+      if (currentTab === tabName && tabVisible) {
+        // Toggle off: show default SAGOR text
+        contentContainer.innerHTML = `<span class="rgb-text" id="defaultText">SAGOR</span>`;
+        tabVisible = false;
+        tabs.forEach(t => t.classList.remove('active'));
+        attachSagorTextClick();
+      } else {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentTab = tabName;
+        tabVisible = true;
+
+        if (tabName === 'skills') {
+          let skillHTML = '';
+          skillsData.forEach(skill => {
+            skillHTML += `
+              <div class="skill-item">
+                <div class="skill-name">${skill.name}</div>
+                <div class="skill-bar" aria-label="${skill.name} skill level">
+                  <div class="skill-bar-fill" style="--width: ${skill.percent}; width: 0;"></div>
+                </div>
+                <div class="skill-percent">${skill.percent}</div>
+              </div>
+            `;
+          });
+          contentContainer.innerHTML = skillHTML;
+
+          // Animate skill bars fill
+          setTimeout(() => {
+            const fills = contentContainer.querySelectorAll('.skill-bar-fill');
+            fills.forEach((fill, i) => {
+              fill.style.width = skillsData[i].percent;
+            });
+          }, 50);
+
+        } else {
+          contentContainer.innerHTML = socialLinks[tabName] || '<p>No link found.</p>';
+        }
+      }
+    });
+  });
+
+  function attachSagorTextClick() {
+    // Attach click on SAGOR text to show ASSALAMUALAIKUM
+    const sagorEl = document.getElementById('sagorText') || document.getElementById('defaultText');
+    if (!sagorEl) return;
+    sagorEl.addEventListener('click', () => {
+      contentContainer.innerHTML = '<span class="small-assalam">𝗔𝗦𝗦𝗔𝗟𝗔𝗠𝗨𝗔𝗟𝗔𝗜𝗞𝗨𝗠</span>';
+      tabs.forEach(t => t.classList.remove('active'));
+      currentTab = null;
+      tabVisible = false;
+    });
+  }
+
+  attachSagorTextClick();
+</script>
+</body>
+</html>

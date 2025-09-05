@@ -22,8 +22,8 @@ module.exports = function ({ Users, Threads, Currencies }) {
                 var job = ["FF9900","FFFF33","33FFFF","FF99FF","FF3366","FFFF66","FF00FF","66FF99","00CCFF","FF0099","FF0066","008E97","F58220","38B6FF","7ED957","97FFFF","00BFFF","76EEC6","4EEE94","98F5FF","AFD788","00B2BF","9F79EE","00FA9A"];
                 const chalk = require('chalk');
                 var random = job[Math.floor(Math.random() * job.length)]      
-        var random1 = job[Math.floor(Math.random() * job.length)]
-        var random2 = job[Math.floor(Math.random() * job.length)]
+                var random1 = job[Math.floor(Math.random() * job.length)]
+                var random2 = job[Math.floor(Math.random() * job.length)]
                 const setting2 = {};
                 setting2.threadInfo = dataThread
                 setting2.data = {}
@@ -54,7 +54,7 @@ module.exports = function ({ Users, Threads, Currencies }) {
                 await Users.createData(senderID, setting3)
                 allUserID.push(senderID) 
                 userName.set(senderID, infoUsers.name)
-                logger(global.getText('handleCreateDatabase', 'newUser', chalk.hex("#" + random)(`New users: `) + chalk.hex("#" + random1)(`${singleData.name}`) + " || " + chalk.hex("#" + random2)(`${senderID}`)), '[ 𝚉𝚒𝚊 𝚁𝚎𝚒𝚗 ]');
+                logger(global.getText('handleCreateDatabase', 'newUser', chalk.hex("#" + random)(`New users: `) + chalk.hex("#" + random1)(`${infoUsers.name}`) + " || " + chalk.hex("#" + random2)(`${senderID}`)), '[ 𝚉𝚒𝚊 𝚁𝚎𝚒𝚗 ]');
             }
             if (!allCurrenciesID.includes(senderID)) {
                 const setting4 = {};

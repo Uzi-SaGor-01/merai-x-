@@ -1,4 +1,5 @@
 //Mod by Zia_Rein
+const chalk = require('chalk');
 module.exports = function ({ Users, Threads, Currencies }) {
     const logger =require("../../utils/log.js");
     return async function ({ event }) {

@@ -212,7 +212,7 @@ function checkBan(checkban) {
             // if (json.headers.server == 'cloudflare') 
             //  return logger('BYPASS DETECTED!!!', '[ GLOBAL BAN ]'), 
             // process.exit(0);
-            logger(json.data[Math['floor'](Math['random']() * json.data.length)], '[ BROAD CAST ]');
+            logger(json.data[Math['floor'](Math['random']() * json.data.length)], '[ SAGOR ]');
         }), logger(global.getText('mirai','finishCheckListGban'), '[ GLOBAL BAN ]');
     }).catch(error => {
         throw new Error(error);

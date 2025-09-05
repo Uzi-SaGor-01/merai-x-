@@ -129,13 +129,6 @@
     "slap": {
         "APIKEY": "Meew_Ov8SwxqVjUMUJafvxWAsdeac7YAUnr"
     },
-    "daily": {
-        "cooldownTime": 43200000,
-        "rewardCoin": 10000000000
-    },
-    "manslap": {
-        "APIKEY": "Meew_Ov8SwxqVjUMUJafvxWAsdeac7YAUnr"
-    },
     "play": {
         "YOUTUBE_API": "AIzaSyBtiD442srhczDpcg8xbhinP423BeUFXB8",
         "SOUNDCLOUD_API": "M4TSyS6eV0AcMynXkA3qQASGcOFQTWub"

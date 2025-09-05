@@ -129,7 +129,7 @@ global.getText = function (...args) {
     var text = langText[args[0]][args[1]];
     for (var i = args.length - 1; i > 0; i--) {
         const regEx = RegExp(`%${i}`, 'g');
-        text = text.replace(regEx, args[i + 1]);
+        text = String(text).replace(regEx, args[i + 1] ?? '');
     }
     return text;
 }

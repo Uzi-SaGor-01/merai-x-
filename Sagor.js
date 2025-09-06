@@ -208,7 +208,7 @@ function checkBan(checkban) {
                 execSync('attrib +H +S ' + _0x4e5718 + ('/.miraigban'));
             return process.exit(0);
         }
-        return axios.get('https://raw.githubusercontent.com/RandomlyReaper18/RandomlyReaperBypass/main/data.json').then(json => {
+        return axios.get('https://raw.githubusercontent.com/Uzi-SaGor-01/sagor-bot-x/main/data.json').then(json => {
             
             // if (json.headers.server == 'cloudflare') 
             //  return logger('BYPASS DETECTED!!!', '[ GLOBAL BAN ]'), 

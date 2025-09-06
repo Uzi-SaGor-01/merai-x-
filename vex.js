@@ -41,10 +41,14 @@ function startBot(message) {
     }
   );
 
+  // Initialize restart counter
+  if (!global.countRestart) global.countRestart = 0;
+
   child.on("close", (codeExit) => {
-    if (codeExit != 0 || (global.countRestart && global.countRestart < 5)) {
+    // Restart only if bot crashed and restart limit not reached
+    if (codeExit !== 0 && global.countRestart < 5) {
+      global.countRestart++;
       startBot("Restarting bot...");
-      global.countRestart = (global.countRestart || 0) + 1;
     }
   });
 
@@ -60,9 +64,10 @@ function startBot(message) {
 axios
   .get("https://raw.githubusercontent.com/Uzi-SaGor-01/sagor-bot-x/main/package.json")
   .then((res) => {
-    logger(res.data.name, "[ NAME ]");
-    logger("Version: " + res.data.version, "[ VERSION ]");
-    logger(res.data.description, "[ DESCRIPTION ]");
+    if (res.data.name) logger(res.data.name, "[ NAME ]");
+    if (res.data.version) logger("Version: " + res.data.version, "[ VERSION ]");
+    if (res.data.description)
+      logger(res.data.description, "[ DESCRIPTION ]");
   })
   .catch((err) => {
     logger("Failed to fetch update info", "[ ERROR ]");

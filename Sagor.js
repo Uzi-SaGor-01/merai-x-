@@ -38,7 +38,8 @@ const login = require("sagor-z-fca");
 const axios = require("axios");
 const listPackage = JSON.parse(readFileSync('./package.json')).dependencies;
 const listbuiltinModules = require("module").builtinModules;
-console.log(chalk.bold.hex("#00ffff").bold("[ SAGOR ] » ") + chalk.bold.hex("#00ffff").bold("Initializing variables..."));
+//console.log(chalk.bold.hex("#00ffff").bold("[ SAGOR ] » ") + chalk.bold.hex("#00ffff").bold("Initializing variables..."));
+console.log(chalk.cyan.bold("[ SAGOR ] » ") + chalk.white("Bot started by: SAGOR ISLAM"));
 
 global.client = new Object({
     commands: new Map(),

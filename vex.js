@@ -28,27 +28,41 @@ app.get("/", (req, res) =>
 //========= START BOT & AUTO RESTART =========//
 ////////////////////////////////////////////////
 
+let restarting = false; // Avoid duplicate restarts
+
 function startBot(message) {
-  if (message) logger(message, "[ Starting ]");
+  if (message && !restarting) logger(message, "[ Starting ]");
 
   const child = spawn(
     "node",
     ["--trace-warnings", "--async-stack-traces", "Sagor.js"],
     {
       cwd: __dirname,
-      stdio: "inherit",
+      stdio: ["pipe", "pipe", "pipe"], // ⚡ Pipe prevents double logs
       shell: true
     }
   );
 
-  // Initialize restart counter
-  if (!global.countRestart) global.countRestart = 0;
+  // Capture stdout and stderr from Sagor.js
+  child.stdout.on("data", (data) => {
+    const text = data.toString().trim();
+    if (text) logger(text, "[ SAGOR ]");
+  });
 
+  child.stderr.on("data", (data) => {
+    const text = data.toString().trim();
+    if (text) logger(text, "[ ERROR ]");
+  });
+
+  // Restart logic if Sagor.js crashes
   child.on("close", (codeExit) => {
-    // Restart only if bot crashed and restart limit not reached
-    if (codeExit !== 0 && global.countRestart < 5) {
-      global.countRestart++;
-      startBot("Restarting bot...");
+    if (codeExit !== 0 && !restarting) {
+      restarting = true;
+      logger("Sagor.js crashed! Restarting bot...", "[ RESTART ]");
+      setTimeout(() => {
+        restarting = false;
+        startBot();
+      }, 3000);
     }
   });
 
@@ -69,7 +83,7 @@ axios
     if (res.data.description)
       logger(res.data.description, "[ DESCRIPTION ]");
   })
-  .catch((err) => {
+  .catch(() => {
     logger("Failed to fetch update info", "[ ERROR ]");
   });
 
